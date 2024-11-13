@@ -61,7 +61,7 @@ def data_page():
 
 
         # loading dataset
-        dataset_path = r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy.csv"
+        dataset_path = r"C:\Users\HP1\Desktop\Streamlit\Data\pd.csv"
         try:
             data = pd.read_csv(dataset_path)
             with col2:
