@@ -48,11 +48,11 @@ def predict_page():
     #make single prediction
     st.subheader("Single Customer Prediction")
     
-    gender = st.selectbox("gender", ['Male', 'Female'])
+    Gender = st.selectbox("gender", ['Male', 'Female'])
     SeniorCitizen = st.selectbox("Senior Citizen", ['Yes', 'No'])
     Partner = st.selectbox("Partner", ['Yes', 'No'])
     Dependents = st.selectbox("Dependents", ['Yes', 'No'])
-    tenure = st.slider("tenure (Months)", min_value=1, max_value=72, value=12)
+    Tenure = st.slider("tenure (Months)", min_value=1, max_value=72, value=12)
     PaperlessBilling = st.selectbox("Paperless Billing", ['Yes', 'No'])
     PaymentMethod = st.selectbox("Payment Method", ['Electronic check', 'Mailed check', 'Bank transfer (automatic)', 'Credit card (automatic)'])
     MonthlyCharges = st.number_input("Monthly Charges", min_value=0.0, value=50.0)
@@ -74,11 +74,11 @@ def predict_page():
 
         #create a dataframe
         data = pd.DataFrame({
-            'gender': [gender],
+            'gender': [Gender],
             'SeniorCitizen': [SeniorCitizen],
             'Partner': [Partner],
             'Dependents': [Dependents],
-            'tenure': [tenure],
+            'tenure': [Tenure],
             'PaperlessBilling': [PaperlessBilling],
             'PaymentMethod': [PaymentMethod],
             'MonthlyCharges': [MonthlyCharges],
@@ -117,7 +117,7 @@ def predict_page():
         
             #required columns
             required_columns = [
-                'Gender','SeniorCitizen','Partner','Dependents','Tenure','PhoneService',
+                'gender','SeniorCitizen','Partner','Dependents','tenure','PhoneService',
                 'MultipleLines','InternetService','OnlineSecurity','OnlineBackup',
                 'DeviceProtection','TechSupport','StreamingTV','StreamingMovies','Contract',
                 'PaperlessBilling','PaymentMethod','MonthlyCharges','TotalCharges','Churn'
