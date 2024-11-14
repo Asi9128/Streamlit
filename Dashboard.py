@@ -103,7 +103,7 @@ def dashboard_page():
     st.title('Dashboard Page')
  
     # load data
-    data = pd.read_csv('Data/train_copy.csv')
+    data = pd.read_csv(r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
  
     st.header('Data Overview')
     st.write('Here is a quick summary of the data')
