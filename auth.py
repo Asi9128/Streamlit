@@ -29,16 +29,9 @@ def login_form():
 
 def show_authentication_page():
     st.title("Welcome")
-    #Home_page()
-    #st.write(f"Hello {st.session_state['username']}")
-
+    
     if st.button("Logout"):
         logout()
 
 def logout():
     st.session_state.clear()
-    #st.experimental_rerun()
-
-
-#def show_authenticated_page():
-   # show_authentication_page()
