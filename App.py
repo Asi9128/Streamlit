@@ -29,7 +29,9 @@ def login_form():
 
 def show_authentication_page():
     st.title("Welcome")
-    st.write("You are logged in 🎉.")
+    st.toast("You are logged in 🎉.", icon="✅")
+    st.balloons()
+    #st.write("You are logged in 🎉.")
     if st.button("Logout"):
         logout()
 

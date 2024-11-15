@@ -21,8 +21,8 @@ def login_form():
     if st.button("Login"):
         if username == "admin" and password == "admin":
             st.session_state['authentication_status'] = True
-           # st.session_state['username'] = username
-            #st.experimental_rerun()
+            st.toast("Login Successfull", icon="✅")
+
         else:
             st.error("Username/password is incorrect")
 
@@ -31,7 +31,7 @@ def show_authentication_page():
     st.title("Welcome")
     
     if st.button("Logout"):
-        logout()
+            logout()
 
-def logout():
-    st.session_state.clear()
+    def logout():
+        st.session_state.clear()
