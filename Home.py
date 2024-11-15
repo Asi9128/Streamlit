@@ -3,7 +3,7 @@ import streamlit as st
 
 def Home_page():
 
-    st.image(r"C:\Users\HP1\Pictures\Gemini_Generated_Image_fe3y3afe3y3afe3y.jpeg", width=150)
+    st.image(r"C:\Users\HP1\Desktop\Streamlit\images\Telcho_churn_ml.jpg", width=150)
 
     st.title('Embedded ML in GUI using Streamlit')
 
@@ -48,15 +48,15 @@ def Home_page():
            streamlit run app.py
     """)
 # adding a video using the link
-    st.video("https://youtu.be/ngHM70aSEA8",autoplay=True)
+    #st.video("https://youtu.be/ngHM70aSEA8",autoplay=True)
 
 # adding a clickable link
-    st.markdown("Watch a demo](https://youtu.be/MY4YJxn-9Og)")
+    #st.markdown("Watch a demo](https://youtu.be/MY4YJxn-9Og)")
 
 
 # adding an image
     #st.image("https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg")
-    st.image(r"C:\Users\HP1\Pictures\Gemini_Generated_Image_fe3y3afe3y3afe3y.jpeg", width=150)   
+    st.image(r"C:\Users\HP1\Desktop\Streamlit\images\hands_on_keyboard.jpeg")  
     
 #another way of adding an image
 # install pillow     
