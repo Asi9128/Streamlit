@@ -174,8 +174,12 @@ import matplotlib.pyplot as plt
 import os
 
 
-file_path = os.path.abspath(r"Data\train_copy1.csv")
+print("Current Working Directory: ", os.getcwd())
+file_path = os.path.join(os.getcwd(), "Data", "train_copy1.csv")
 data = pd.read_csv(file_path)
+
+# file_path = os.path.abspath(r"Data\train_copy1.csv")
+# data = pd.read_csv(file_path)
 
 # # Load data
 # file_path = (r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
