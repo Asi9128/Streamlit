@@ -85,12 +85,10 @@ def Home_page():
 
 
     st.divider()
-    st.write("===="*25)
-
+    
     st.write('NEED HELP?')
-    st.write('Email: david.zodanu@azubi.org')
-    st.write('GitHub: https://github.com/davidzodanu')
-    st.write('Twitter: @david_zodanu')
+    st.write('Email: david.zodanu@azubiafrica.org')
+    st.write('GitHub: https://github.com/Asi9128')
     st.write('LinkedIn: https://www.linkedin.com/in/david-zodanu/')
     st.write('Phone: +233 0555 717 949')
 
