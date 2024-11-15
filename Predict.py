@@ -22,7 +22,7 @@ def load_model(filename):
 def predict_page():
 
     st.sidebar.title("Predict Page")
-    st.sidebar.write("Churn or not Churn Prediction")
+    st.sidebar.write("Churn or not Churn Prediction 🪄")
 
 
     #load pipeline
@@ -48,11 +48,11 @@ def predict_page():
     #make single prediction
     st.subheader("Single Customer Prediction")
     
-    Gender = st.selectbox("gender", ['Male', 'Female'])
+    Gender = st.selectbox("Gender", ['Male', 'Female'])
     SeniorCitizen = st.selectbox("Senior Citizen", ['Yes', 'No'])
     Partner = st.selectbox("Partner", ['Yes', 'No'])
     Dependents = st.selectbox("Dependents", ['Yes', 'No'])
-    Tenure = st.slider("tenure (Months)", min_value=1, max_value=72, value=12)
+    Tenure = st.slider("Tenure (Months)", min_value=1, max_value=72, value=12)
     PaperlessBilling = st.selectbox("Paperless Billing", ['Yes', 'No'])
     PaymentMethod = st.selectbox("Payment Method", ['Electronic check', 'Mailed check', 'Bank transfer (automatic)', 'Credit card (automatic)'])
     MonthlyCharges = st.number_input("Monthly Charges", min_value=0.0, value=50.0)
@@ -70,7 +70,7 @@ def predict_page():
     Churn = st.selectbox("Churn", ['Yes', 'No'])
    
     #predict for a customer
-    if st.button('Predict'):
+    if st.button('Predict 🪄'):
 
         #create a dataframe
         data = pd.DataFrame({
@@ -105,8 +105,7 @@ def predict_page():
         st.write(f"Churn Probability:{probability:.2f}%")
     
     #Bulk Prediction
-    st.header("Bulk Customer Prediction")
-    st.write("Upload CSV File")
+    st.header("Bulk Customer Prediction 🪄")
     uploaded_file = st.file_uploader("Upload CSV File", type="csv")
 
     if uploaded_file is not None:

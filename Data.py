@@ -3,7 +3,7 @@ import pandas as pd
 
 def data_page():
 
-    st.title("Data Page")
+    st.title("Data Page 📈")
 
     st.sidebar.title("Data Understanding")
     

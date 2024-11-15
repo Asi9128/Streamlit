@@ -100,7 +100,7 @@ import seaborn as sns
  
  
 def dashboard_page():
-    st.title('Dashboard Page')
+    st.title('Dashboard Page 📊')
  
     # load data
     data = pd.read_csv(r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
