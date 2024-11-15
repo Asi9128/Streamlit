@@ -3,7 +3,7 @@ import streamlit as st
 
 def Home_page():
 
-    st.image(r"C:\Users\HP1\Desktop\Streamlit\images\Telcho_churn_ml.jpg", width=150)
+    st.image(r"C:\Users\HP1\Desktop\Streamlit\images\Telcho_churn_ml.jpg")
 
     st.title('Embedded ML in GUI using Streamlit')
 
@@ -41,7 +41,7 @@ def Home_page():
     st.write("### HOW TO USE THIS APP")
     with st.container(border=True):
         st.code("""
-           # Acitivate the virtual environment
+           # Activate the virtual environment
            env/scripts/activate
            
            # Run the app
@@ -56,7 +56,7 @@ def Home_page():
 
 # adding an image
     #st.image("https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg")
-    st.image(r"C:\Users\HP1\Desktop\Streamlit\images\hands_on_keyboard.jpeg")  
+    st.image(r"C:\Users\HP1\Desktop\Streamlit\images\hands_on_keyboard.jpeg", width = 400)  
     
 #another way of adding an image
 # install pillow     
