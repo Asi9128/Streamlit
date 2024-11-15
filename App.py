@@ -4,7 +4,7 @@ from Data import data_page
 from Predict import predict_page
 from Dashboard import dashboard_page
 from auth import authentication
-
+# from History import history_page
 
 # Authentication and login logic
 def authentication():
