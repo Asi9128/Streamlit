@@ -45,7 +45,7 @@ def Home_page():
            env/scripts/activate
            
            # Run the app
-           streamlit run p.py
+           streamlit run app.py
     """)
 # adding a video using the link
     st.video("https://youtu.be/ngHM70aSEA8",autoplay=True)

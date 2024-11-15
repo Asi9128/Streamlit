@@ -76,7 +76,8 @@ import streamlit as st
 import pandas as pd
 
 # Load data
-file_path =r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv"
+file_path = r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv"
+print(file_path)
 data = pd.read_csv(file_path)
 
 # Define the data page function
