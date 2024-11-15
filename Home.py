@@ -66,26 +66,23 @@ def Home_page():
 
     st.subheader("Author: David Zodanu")
 
-# Creating a like button
+# Rating the App
 
     st.header("RATE THIS APP")
 
-    button1 = st.button("Click me!")
-    #if button1:
-      #  st.write("Thanks for clicking me!") 
+    rating = st.radio("Rate the app",("1","2","3","4","5"))
+    st.write("You selected :", rating)
 
-    like = st.checkbox("Do you like this app?")
-
-    button2 = st.button("Submit")
-    if button2:
-    
-        if like:
-            st.write("You are amazing!")
-        else:
-            st.write("I'm sorry. You have bad taste!")
-    
-
-    st.radio("Rate the app",("1","2","3","4","5"))
+    if rating == "1":
+        st.write("I'm sorry. You have bad taste!")    
+    elif rating == "2":
+        st.write("I'm sorry. You can do better!")    
+    elif rating == "3":
+        st.write("I'm sorry. You are getting there!")    
+    elif rating == "4": 
+        st.write("I'm sorry. You have good taste!")    
+    elif rating == "5":
+        st.write("You are amazing!")
 
 
     st.divider()
