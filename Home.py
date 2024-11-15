@@ -71,18 +71,17 @@ def Home_page():
     st.header("RATE THIS APP")
 
     rating = st.radio("Rate the app",("1","2","3","4","5"))
-    st.write("You selected :", rating)
-
+   
     if rating == "1":
-        st.write("I'm sorry. You have bad taste!")    
+        st.write("I'm sorry. You have bad taste!😀")    
     elif rating == "2":
-        st.write("I'm sorry. You can do better!")    
+        st.write("Good.You can do better!👏🏽")    
     elif rating == "3":
-        st.write("I'm sorry. You are getting there!")    
+        st.write("You are getting there!🥳")    
     elif rating == "4": 
-        st.write("I'm sorry. You have good taste!")    
+        st.write("You have good taste!🥂")    
     elif rating == "5":
-        st.write("You are amazing!")
+        st.write("You are amazing!🎉")
 
 
     st.divider()
