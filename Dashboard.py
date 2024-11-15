@@ -174,7 +174,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-file_path = os.path.abspath(r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
+file_path = os.path.abspath(r"Data\train_copy1.csv")
 data = pd.read_csv(file_path)
 
 # # Load data
