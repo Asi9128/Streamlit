@@ -5,7 +5,7 @@ def Home_page():
 
     #st.image(r"C:\Users\HP1\OneDrive\Telcho_churn_ml.jpg")
 
-    st.title('Embedded ML in GUI using Streamlit')
+    st.title('Integrating Machine Learning into a GUI with Streamlit')
 
     st.title("Telco Churn Classification App")
 
