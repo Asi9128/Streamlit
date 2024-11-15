@@ -61,8 +61,8 @@ def main():
             predict_page()
         elif page == "Dashboard 📊":
             dashboard_page()
-        elif page == "History⏰":
-            history_page()
+        # elif page == "History⏰":
+            # history_page()
 
 # Run the main function
 if __name__ == "__main__":
