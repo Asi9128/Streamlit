@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv
+venv/
+
+# Large files
+*.pkl
+*.h5
+*.dll  # Exclude large DLL files if needed
+
+# Streamlit logs
+logs/
