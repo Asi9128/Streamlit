@@ -171,10 +171,15 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
-# Load data
-file_path = (r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
+
+file_path = os.path.abspath(r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
 data = pd.read_csv(file_path)
+
+# # Load data
+# file_path = (r"C:\Users\HP1\Desktop\Streamlit\Data\train_copy1.csv")
+# data = pd.read_csv(file_path)
 
 # Define the dashboard_page function
 def dashboard_page():
