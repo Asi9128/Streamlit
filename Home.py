@@ -3,7 +3,7 @@ import streamlit as st
 
 def Home_page():
 
-    st.image(r"C:\Users\HP1\OneDrive\Telcho_churn_ml.jpg")
+    #st.image(r"C:\Users\HP1\OneDrive\Telcho_churn_ml.jpg")
 
     st.title('Embedded ML in GUI using Streamlit')
 
@@ -56,7 +56,7 @@ def Home_page():
 
 # adding an image
     #st.image("https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg")
-    st.image(r"C:\Users\HP1\OneDrive\hands_on_keyboard.jpeg", width = 400)  
+    #st.image(r"C:\Users\HP1\OneDrive\hands_on_keyboard.jpeg", width = 400)  
     
 #another way of adding an image
 # install pillow     
