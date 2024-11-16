@@ -172,7 +172,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
-
+from streamlit_lottie import st_lottie
+import json
 
 print("Current Working Directory: ", os.getcwd())
 file_path = os.path.join(os.getcwd(), "Data", "train_copy1.csv")
@@ -187,6 +188,12 @@ data = pd.read_csv(file_path)
 
 # Define the dashboard_page function
 def dashboard_page():
+
+    with open("Animation.json") as source:
+        Animation = json.load(source)
+
+    st.lottie(Animation)
+
     # Set up the Streamlit app layout
     st.title("Customer Churn Dashboard")
     st.sidebar.title("Filters")
