@@ -3,12 +3,8 @@ import pickle
 import pandas as pd
 from pathlib import Path
 import os
-# load the pipeline
-# @st.cache_resource
-# def load_pipeline():
-    #with open(os.path.join('Models', 'premodel.pkl'), 'rb') as file:
-    # with (open('Models')/'premodel.pkl', 'rb') as file:
-      # return pickle.load(file)
+                 
+
 @st.cache_resource
 def load_pipeline():
     pipeline_path = Path('Models') / 'premodel.pkl'
@@ -20,19 +16,17 @@ def load_model(filename):
         return pickle.load(file)
 
 def predict_page():
-
     st.sidebar.title("Predict Page")
     st.sidebar.write("Churn or not Churn Prediction 🪄")
 
-
-    #load pipeline
+    # Load pipeline
     pipeline = load_pipeline()
 
-    #load models
+    # Load models
     models_path = {
-        'Decision Tree':'Models/Decision Tree.pkl',
-        'K-Nearest Neigbors':'Models/K-Nearest Neighbors.pkl',
-        'XGB':'Models/XGB.pkl'
+        'Decision Tree': 'Models/Decision Tree.pkl',
+        'K-Nearest Neighbors': 'Models/K-Nearest Neighbors.pkl',
+        'XGB': 'Models/XGB.pkl'
     }
 
     model_choice = st.selectbox('Select a Model', list(models_path.keys()))
@@ -42,12 +36,13 @@ def predict_page():
         st.error('Model is not selected')
         return
 
-    #check the model type
+    # Check the model type
     st.write(f"Loaded Model Type: {type(model)}")
 
-    #make single prediction
+    # Single Prediction
     st.subheader("Single Customer Prediction")
     
+    # Input fields
     Gender = st.selectbox("Gender", ['Male', 'Female'])
     SeniorCitizen = st.selectbox("Senior Citizen", ['Yes', 'No'])
     Partner = st.selectbox("Partner", ['Yes', 'No'])
@@ -64,15 +59,13 @@ def predict_page():
     OnlineBackup = st.selectbox("Online Backup", ['Yes', 'No', 'No internet service'])
     DeviceProtection = st.selectbox("Device Protection", ['Yes', 'No', 'No internet service'])
     TechSupport = st.selectbox("Tech Support", ['Yes', 'No', 'No internet service'])
-    StreamingTV = st.selectbox("StreamingTV", ['Yes', 'No', 'No internet service'])
-    StreamingMovies = st.selectbox("StreamingMovies", ['Yes', 'No', 'No internet service'])
+    StreamingTV = st.selectbox("Streaming TV", ['Yes', 'No', 'No internet service'])
+    StreamingMovies = st.selectbox("Streaming Movies", ['Yes', 'No', 'No internet service'])
     Contract = st.selectbox("Contract", ['Month-to-month', 'One year', 'Two year'])
     Churn = st.selectbox("Churn", ['Yes', 'No'])
-   
-    #predict for a customer
-    if st.button('Predict 🪄'):
 
-        #create a dataframe
+    if st.button('Predict 🪄'):
+        # Create DataFrame
         data = pd.DataFrame({
             'gender': [Gender],
             'SeniorCitizen': [SeniorCitizen],
@@ -96,38 +89,47 @@ def predict_page():
             'Churn': [Churn]
         })
 
-        #Process to the pipeline
-        predition = pipeline.predict(data)
-        probability = pipeline.predict_proba(data)[0][1]*100
+        # Process through the pipeline
+        prediction = pipeline.predict(data)
+        probability = pipeline.predict_proba(data)[0][1] * 100
 
-        #Display results
-        st.write(f"Single Prediction:{'Churn' if predition[0] == 1 else 'Not Churn'}")
-        st.write(f"Churn Probability:{probability:.2f}%")
-    
-    #Bulk Prediction
+        # Save results in session state
+        if "single_prediction_history" not in st.session_state:
+            st.session_state.single_prediction_history = []
+
+        st.session_state.single_prediction_history.append({
+            "input_data": data.to_dict(orient="records")[0],
+            "prediction": "Churn" if prediction[0] == 1 else "Not Churn",
+            "probability": probability
+        })
+
+        # Display results
+        st.write(f"Single Prediction: {'Churn' if prediction[0] == 1 else 'Not Churn'}")
+        st.write(f"Churn Probability: {probability:.2f}%")
+
+    # Bulk Prediction
     st.header("Bulk Customer Prediction 🪄")
     uploaded_file = st.file_uploader("Upload CSV File", type="csv")
 
     if uploaded_file is not None:
         try:
-            #read the data
+            # Read the data
             bulk_data = pd.read_csv(uploaded_file)
-            st.write("Data Preview",bulk_data.head())
-        
-            #required columns
-            required_columns = [
-                'gender','SeniorCitizen','Partner','Dependents','tenure','PhoneService',
-                'MultipleLines','InternetService','OnlineSecurity','OnlineBackup',
-                'DeviceProtection','TechSupport','StreamingTV','StreamingMovies','Contract',
-                'PaperlessBilling','PaymentMethod','MonthlyCharges','TotalCharges','Churn'
-            ]
-    
-            if all(col in bulk_data.columns for col in required_columns):
-       
-                bulk_predictions = pipeline.predict(bulk_data)
-                bulk_probabilities = pipeline.predict_proba(bulk_data)[:,1]*100
+            st.write("Data Preview", bulk_data.head())
 
-                #Display results    
+            # Required columns
+            required_columns = [
+                'gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure', 'PhoneService',
+                'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
+                'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+                'PaperlessBilling', 'PaymentMethod', 'MonthlyCharges', 'TotalCharges', 'Churn'
+            ]
+
+            if all(col in bulk_data.columns for col in required_columns):
+                bulk_predictions = pipeline.predict(bulk_data)
+                bulk_probabilities = pipeline.predict_proba(bulk_data)[:, 1] * 100
+
+                # Display results
                 bulk_results = bulk_data.copy()
                 bulk_results["Predictions"] = ['Churn' if pred == 1 else 'Not Churn' for pred in bulk_predictions]
                 bulk_results["Churn Probability"] = bulk_probabilities
@@ -135,16 +137,21 @@ def predict_page():
                 st.write("Bulk Prediction Results:")
                 st.dataframe(bulk_results)
 
+                # Save the results in session state for history
+                if "bulk_prediction_history" not in st.session_state:
+                    st.session_state.bulk_prediction_history = []
 
-                 #save the results to a CSV file
+                st.session_state.bulk_prediction_history.append({
+                    "file_name": uploaded_file.name,
+                    "results": bulk_results
+                })
+
+                # Save the results to a CSV file
                 result_file = "data/bulk_predictions.csv"
                 bulk_results.to_csv(result_file, index=False)
                 st.success(f"Results saved to {result_file}")
-        
             else:
                 st.error("Upload CSV file with required columns")
 
-    
         except Exception as e:
             st.error(f"Error during bulk prediction: {e}")
-                 

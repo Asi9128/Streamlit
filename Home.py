@@ -81,7 +81,7 @@ def Home_page():
         "Welcome to My Streamlit App! :wave:
 
      Hi, I'm a passionate data analyst and aspiring AI expert. I specialize in leveraging data-driven solutions to uncover insights and drive impactful decisions.
-     I enjoy working on projects that blend analytics with real-world applications. Explore this app to see how I use data to solve problems and create value.
+     I enjoy working on projects that blend analytics with real-world applications. Explore this app to learn more about my work and how I can help you unlock the potential of your data.
      """ )
     
     
