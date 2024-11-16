@@ -111,6 +111,10 @@ def predict_page():
         # Trigger balloons immediately after prediction
         st.session_state['show_balloons'] = True
 
+        # Ensure the 'data' directory exists before saving the results
+        os.makedirs("data", exist_ok=True)  # Create the 'data' directory if it doesn't exist
+
+
         # Ensure balloons show up on the same click
         if st.session_state.get('show_balloons', False):
             st.balloons()
