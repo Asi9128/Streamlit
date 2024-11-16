@@ -27,16 +27,31 @@
 #         else:
 #             st.error("Username/password is incorrect")
 
+# # def show_authentication_page():
+# #     st.title("Welcome")
+# #     st.toast("You are logged in 🎉.", icon="✅")
+# #     #st.balloons()
+# #     if st.button("Logout"):
+# #         logout()
+
+# # def logout():
+# #     st.session_state.clear()
+
 # def show_authentication_page():
 #     st.title("Welcome")
-#     st.toast("You are logged in 🎉.", icon="✅")
-#     st.balloons()
-#     #st.write("You are logged in 🎉.")
+    
+#     # Show balloons only once after login
+#     if st.session_state.get('show_balloons', False):
+#         st.balloons()
+#         st.session_state['show_balloons'] = False  # Reset flag
+    
 #     if st.button("Logout"):
 #         logout()
 
 # def logout():
 #     st.session_state.clear()
+#     st.session_state['show_balloons'] = True
+
 
 # # Main function for handling navigation
 # def main():
@@ -50,7 +65,10 @@
 #         st.sidebar.write("Select a page to view:")
         
 #         # Sidebar navigation options
-#         page = st.sidebar.selectbox("Navigate", ["Home 🏠", "Data 📈", "Predict 🪄", "Dashboard 📊", "History 📜"])
+#         page = st.sidebar.selectbox(
+#             "Navigate", 
+#             ["Home 🏠", "Data 📈", "Predict 🪄", "Dashboard 📊", "History 📜"]
+#         )
 
 #         # Display the selected page content
 #         if page == "Home 🏠":
@@ -61,12 +79,13 @@
 #             predict_page()
 #         elif page == "Dashboard 📊":
 #             dashboard_page()
-#         # elif page == "History⏰":
-#             # history_page()
+#         elif page == "History 📜":
+#             history_page()
 
 # # Run the main function
 # if __name__ == "__main__":
 #     main()
+
 
 
 
@@ -76,7 +95,6 @@ from Home import Home_page
 from Data import data_page
 from Predict import predict_page
 from Dashboard import dashboard_page
-from auth import authentication
 from History import history_page
 
 # Authentication and login logic
@@ -97,21 +115,32 @@ def login_form():
     if st.button("Login"):
         if username == "admin" and password == "admin":
             st.session_state['authentication_status'] = True
+            # Set flag to show balloons after login
+            st.session_state['show_balloons'] = True
+            st.rerun()
         else:
             st.error("Username/password is incorrect")
 
 def show_authentication_page():
     st.title("Welcome")
-    st.toast("You are logged in 🎉.", icon="✅")
-    st.balloons()
+    
+    # Show balloons only once after login
+    if st.session_state.get('show_balloons', False):
+        st.balloons()
+        st.session_state['show_balloons'] = False  # Reset flag to avoid showing balloons again
+    
     if st.button("Logout"):
         logout()
 
 def logout():
     st.session_state.clear()
+    st.session_state['show_balloons'] = False
+    st.rerun()
 
 # Main function for handling navigation
 def main():
+
+    st.set_page_config(page_title="Streamlit App", page_icon=":rocket:", layout="centered", initial_sidebar_state="auto") #menu_items=None)
     # Call authentication function
     authentication()
 
@@ -123,7 +152,7 @@ def main():
         
         # Sidebar navigation options
         page = st.sidebar.selectbox(
-            "Navigate", 
+            ":book:", 
             ["Home 🏠", "Data 📈", "Predict 🪄", "Dashboard 📊", "History 📜"]
         )
 
@@ -142,8 +171,4 @@ def main():
 # Run the main function
 if __name__ == "__main__":
     main()
-
-
-
-
 

@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pickle
 import pandas as pd
@@ -107,6 +108,14 @@ def predict_page():
         st.write(f"Single Prediction: {'Churn' if prediction[0] == 1 else 'Not Churn'}")
         st.write(f"Churn Probability: {probability:.2f}%")
 
+        # Trigger balloons immediately after prediction
+        st.session_state['show_balloons'] = True
+
+        # Ensure balloons show up on the same click
+        if st.session_state.get('show_balloons', False):
+            st.balloons()
+            st.session_state['show_balloons'] = False  # Reset flag
+
     # Bulk Prediction
     st.header("Bulk Customer Prediction 🪄")
     uploaded_file = st.file_uploader("Upload CSV File", type="csv")
@@ -136,6 +145,15 @@ def predict_page():
 
                 st.write("Bulk Prediction Results:")
                 st.dataframe(bulk_results)
+
+                # Trigger balloons immediately after prediction
+                st.session_state['show_balloons'] = True
+
+                # Check for prediction balloons
+                if st.session_state.get('show_balloons', False):
+                    st.balloons()
+                    st.session_state['show_balloons'] = False  # Reset flag
+
 
                 # Save the results in session state for history
                 if "bulk_prediction_history" not in st.session_state:
