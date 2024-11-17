@@ -108,7 +108,7 @@ def Home_page():
     st.write('NEED HELP:question:')
     st.write('Email: david.zodanu@azubiafrica.org :email:')
     st.write('GitHub: https://github.com/Asi9128 :cat:')
-    st.write('LinkedIn: https://www.linkedin.com/in/david-zodanu/ :link:')
+    st.write('LinkedIn: https://www.linkedin.com/david-zodanu-904751105:link:')
     st.write('Phone: +233 0555 717 949 :phone:')
 
 
