@@ -50,32 +50,23 @@ def Home_page():
      """)
     
 
-    st.write("### HOW TO USE THIS APP")
-    with st.container(border=True):
-        st.code("""
-           # Activate the virtual environment
-           env/scripts/activate
+    # st.write("### HOW TO USE THIS APP")
+    # with st.container(border=True):
+    #     st.code("""
+    #        # Activate the virtual environment
+    #        env/scripts/activate
            
-           # Run the app
-           streamlit run app.py
-    """)
+    #        # Run the app
+    #        streamlit run app.py
+    # """)
+
 # adding a video using the link
     #st.video("https://youtu.be/ngHM70aSEA8",autoplay=True)
 
 # adding a clickable link
     #st.markdown("Watch a demo](https://youtu.be/MY4YJxn-9Og)")
 
-
-# adding an image
-    #st.image("https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg")
-    #st.image(r"C:\Users\HP1\OneDrive\hands_on_keyboard.jpeg", width = 400)  
-    
-#another way of adding an image
-# install pillow     
-    #image = Image.open(r"C:\Users\HP1\Pictures\Screenshots\Screenshot 2024-10-18 230836.png")
-    #st.image(image, width=400)
-
-
+    st.divider()
     st.subheader("Author: David Zodanu")
     st.markdown("""
         "Welcome to My Streamlit App! :wave:
