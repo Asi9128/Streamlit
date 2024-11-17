@@ -1,7 +1,15 @@
 import streamlit as st
+import json
 
 def history_page():
+
     st.title("Prediction History 📜")
+
+    with open("timeanimation.json",) as source:
+        animation = json.load(source)
+
+    st.lottie(animation, height=150, width=150,speed=0.5)
+
 
     # Initialize session state to store history if not already done
     if "single_prediction_history" not in st.session_state:

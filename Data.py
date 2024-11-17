@@ -1,44 +1,28 @@
 import streamlit as st
 import pandas as pd
 import os
+import json
 
+    
 print("Current Working Directory: ", os.getcwd())
 file_path = os.path.join(os.getcwd(), "Data", "train_copy1.csv")
 data = pd.read_csv(file_path)
+# def data_page():
 
-
+#     st.title("Customer Churn Data")
 # Data page function
 def data_page():
-    # Set up custom styles
-    st.markdown(
-        """
-        <style>
-        .main-title {
-            font-size: 36px;
-            color: #4a4a4a;
-            text-align: center;
-            font-weight: bold;
-            margin-top: 0;
-        }
-        .section-title {
-            font-size: 24px;
-            color: #6b6b6b;
-            font-weight: bold;
-            margin-top: 40px;
-        }
-        .dataframe {
-            background-color: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-            padding: 20px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+
+    st.title("Customer Churn Data")
+  
+    # Lottie animation
+    with open("dataanimation.json") as source:
+        Animation = json.load(source)
+
+    st.lottie(Animation,height=170, width=170,speed=0.5)
+
 
     # Title for the data page
-    st.markdown("<div class='main-title'>Customer Churn Data Overview</div>", unsafe_allow_html=True)
 
     # Sidebar filters
     st.sidebar.title("Data Filters")

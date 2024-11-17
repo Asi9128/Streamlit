@@ -34,5 +34,5 @@ def show_authentication_page():
     if st.button("Logout"):
             logout()
 
-    def logout():
+def logout():
         st.session_state.clear()

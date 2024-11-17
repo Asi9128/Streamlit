@@ -1,14 +1,14 @@
 import streamlit as st
 import streamlit.components.v1 as com
-#com.iframe("https://lottie.host/embed/1d9c7726-8312-4477-ae0b-7efc13a12654/WKcl6YhXxL.json")
+
 # from streamlit_lottie import st_lottie  
 
 def Home_page():
 
-    #st.image(r"C:\Users\HP1\OneDrive\Telcho_churn_ml.jpg")
+    
+    #com.iframe("https://lottie.host/embed/1d9c7726-8312-4477-ae0b-7efc13a12654/WKcl6YhXxL.json")
+    st.title("Integrating Machine Learning into a GUI with Streamlit")
     com.iframe("https://lottie.host/embed/1d9c7726-8312-4477-ae0b-7efc13a12654/WKcl6YhXxL.json")
-    st.title("Integrating Machine Learning into a GUI with Streamlit :book:")
-
     st.title("Telco Churn Classification App :telephone:")
 
 

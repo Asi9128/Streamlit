@@ -13,13 +13,15 @@ data = pd.read_csv(file_path)
 # Define the dashboard_page function
 def dashboard_page():
 
+    st.header("Customer Churn Dashboard")
+
     with open("Animation.json") as source:
         Animation = json.load(source)
 
     st.lottie(Animation)
 
     # Set up the Streamlit app layout
-    st.title("Customer Churn Dashboard")
+    
     st.sidebar.title("Filters")
 
     # Sidebar filters

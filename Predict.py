@@ -4,19 +4,29 @@ import pickle
 import pandas as pd
 from pathlib import Path
 import os
+import json
                  
-
 @st.cache_resource
 def load_pipeline():
     pipeline_path = Path('Models') / 'premodel.pkl'
     with open(pipeline_path, 'rb') as file:
         return pickle.load(file)
-    
+
 def load_model(filename):
     with open(filename, 'rb') as file:
         return pickle.load(file)
 
+
+
 def predict_page():
+
+    st.title("Customer Churn Prediction")
+    
+    with open("magic.json") as source:
+        Animation = json.load(source)
+
+    st.lottie(Animation, height=150, width=150,speed=0.5)
+
     st.sidebar.title("Predict Page")
     st.sidebar.write("Churn or not Churn Prediction 🪄")
 
@@ -43,6 +53,7 @@ def predict_page():
     # Single Prediction
     st.subheader("Single Customer Prediction")
     
+    
     # Input fields
     Gender = st.selectbox("Gender", ['Male', 'Female'])
     SeniorCitizen = st.selectbox("Senior Citizen", ['Yes', 'No'])
@@ -66,6 +77,7 @@ def predict_page():
     Churn = st.selectbox("Churn", ['Yes', 'No'])
 
     if st.button('Predict 🪄'):
+        
         # Create DataFrame
         data = pd.DataFrame({
             'gender': [Gender],
@@ -93,7 +105,7 @@ def predict_page():
         # Process through the pipeline
         prediction = pipeline.predict(data)
         probability = pipeline.predict_proba(data)[0][1] * 100
-
+        
         # Save results in session state
         if "single_prediction_history" not in st.session_state:
             st.session_state.single_prediction_history = []
@@ -107,7 +119,7 @@ def predict_page():
         # Display results
         st.write(f"Single Prediction: {'Churn' if prediction[0] == 1 else 'Not Churn'}")
         st.write(f"Churn Probability: {probability:.2f}%")
-
+        
         # Trigger balloons immediately after prediction
         st.session_state['show_balloons'] = True
 
@@ -119,6 +131,11 @@ def predict_page():
         if st.session_state.get('show_balloons', False):
             st.balloons()
             st.session_state['show_balloons'] = False  # Reset flag
+
+    with open("magic.json") as source:
+        Animation = json.load(source)
+
+    st.lottie(Animation, height=150, width=150)  
 
     # Bulk Prediction
     st.header("Bulk Customer Prediction 🪄")
