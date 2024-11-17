@@ -6,7 +6,7 @@ import streamlit.components.v1 as com
 def Home_page():
 
     
-    #com.iframe("https://lottie.host/embed/1d9c7726-8312-4477-ae0b-7efc13a12654/WKcl6YhXxL.json")
+    
     st.title("Integrating Machine Learning into a GUI with Streamlit")
     com.iframe("https://lottie.host/embed/1d9c7726-8312-4477-ae0b-7efc13a12654/WKcl6YhXxL.json")
     st.title("Telco Churn Classification App :telephone:")
@@ -49,22 +49,6 @@ def Home_page():
                 **Cost-Effective**: Streamlined process and cost-effective approach to churn prediction
      """)
     
-
-    # st.write("### HOW TO USE THIS APP")
-    # with st.container(border=True):
-    #     st.code("""
-    #        # Activate the virtual environment
-    #        env/scripts/activate
-           
-    #        # Run the app
-    #        streamlit run app.py
-    # """)
-
-# adding a video using the link
-    #st.video("https://youtu.be/ngHM70aSEA8",autoplay=True)
-
-# adding a clickable link
-    #st.markdown("Watch a demo](https://youtu.be/MY4YJxn-9Og)")
 
     st.divider()
     st.subheader("Author: David Zodanu")
