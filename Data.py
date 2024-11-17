@@ -7,10 +7,7 @@ import json
 print("Current Working Directory: ", os.getcwd())
 file_path = os.path.join(os.getcwd(), "Data", "train_copy1.csv")
 data = pd.read_csv(file_path)
-# def data_page():
 
-#     st.title("Customer Churn Data")
-# Data page function
 def data_page():
 
     st.title("Customer Churn Data")
