@@ -30,31 +30,31 @@ from History import history_page
         #else:
             #st.error("Username/password is incorrect")
 
-def show_authentication_page():
-    st.title("Welcome")
+#def show_authentication_page():
+    #st.title("Welcome")
     
     # Show balloons only once after login
-    if st.session_state.get('show_balloons', False):
-        st.balloons()
-        st.session_state['show_balloons'] = False  # Reset flag to avoid showing balloons again
+    #if st.session_state.get('show_balloons', False):
+        #st.balloons()
+        #st.session_state['show_balloons'] = False  # Reset flag to avoid showing balloons again
     
-    if st.button("Logout"):
-        logout()
+    #if st.button("Logout"):
+        #logout()
 
-def logout():
-    st.session_state.clear()
-    st.session_state['show_balloons'] = False
-    st.rerun()
+#def logout():
+    #st.session_state.clear()
+    #st.session_state['show_balloons'] = False
+    #st.rerun()
 
 # Main function for handling navigation
 def main():
 
     st.set_page_config(page_title="Streamlit App", page_icon=":rocket:", layout="centered", initial_sidebar_state="auto") #menu_items=None)
     # Call authentication function
-    authentication()
+    #authentication()
 
     # Only display navigation if authenticated
-    if st.session_state.get('authentication_status'):
+    #if st.session_state.get('authentication_status'):
         # Sidebar navigation
         st.sidebar.title("Navigator")
         st.sidebar.write("Select a page to view:")
