@@ -13,13 +13,13 @@ def authentication():
 
 
 
-def login_form():
-    st.title("Login")
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+#def login_form():
+    #st.title("Login")
+    #username = st.text_input("Username")
+    #password = st.text_input("Password", type="password")
 
     if st.button("Login"):
-        if username == "admin" and password == "admin":
+        #if username == "admin" and password == "admin":
             st.session_state['authentication_status'] = True
             st.toast("Login Successfull", icon="✅")
             
