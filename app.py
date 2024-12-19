@@ -49,7 +49,7 @@ from History import history_page
 # Main function for handling navigation
 def main():
 
-    st.set_page_config(page_title="Streamlit App", page_icon=":rocket:", layout="centered", initial_sidebar_state="auto") #menu_items=None)
+    st.set_page_config(page_title="Streamlit App", page_icon=":rocket:", layout="centered", initial_sidebar_state="auto"): #menu_items=None)
     # Call authentication function
     #authentication()
 
