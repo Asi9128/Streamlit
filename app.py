@@ -51,13 +51,13 @@ def main():
 
     st.set_page_config(page_title="Streamlit App", page_icon=":rocket:", layout="centered", initial_sidebar_state="auto") #menu_items=None)
     # Call authentication function
-    authentication()
+    #authentication()
 
     # Only display navigation if authenticated
-    if st.session_state.get('authentication_status'):
+    #if st.session_state.get('authentication_status'):
         # Sidebar navigation
-        st.sidebar.title("Navigator")
-        st.sidebar.write("Select a page to view:")
+        #st.sidebar.title("Navigator")
+        #st.sidebar.write("Select a page to view:")
         
         # Sidebar navigation options
         page = st.sidebar.selectbox(
