@@ -30,21 +30,21 @@ from History import history_page
         #else:
             #st.error("Username/password is incorrect")
 
-def show_authentication_page():
-    st.title("Welcome")
+#def show_authentication_page():
+    #st.title("Welcome")
     
     # Show balloons only once after login
-    if st.session_state.get('show_balloons', False):
-        st.balloons()
-        st.session_state['show_balloons'] = False  # Reset flag to avoid showing balloons again
+    #if st.session_state.get('show_balloons', False):
+        #st.balloons()
+        #st.session_state['show_balloons'] = False  # Reset flag to avoid showing balloons again
     
-    if st.button("Logout"):
-        logout()
+    #if st.button("Logout"):
+        #logout()
 
-def logout():
-    st.session_state.clear()
-    st.session_state['show_balloons'] = False
-    st.rerun()
+#def logout():
+    #st.session_state.clear()
+    #st.session_state['show_balloons'] = False
+    #st.rerun()
 
 # Main function for handling navigation
 def main():
