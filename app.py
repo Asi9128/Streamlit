@@ -12,9 +12,9 @@ def authentication():
         st.session_state['authentication_status'] = False
 
     if not st.session_state['authentication_status']:
-        #login_form()
+        login_form()
     else:
-        #show_authentication_page()
+        show_authentication_page()
 
 def login_form():
     st.title("Login")
