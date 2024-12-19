@@ -1,15 +1,15 @@
-import streamlit as st
-from Home import Home_page
+#import streamlit as st
+#from Home import Home_page
 
 
-def authentication():
-    if 'authentication_status' not in st.session_state:
-        st.session_state['authentication_status'] = False
+#def authentication():
+    #if 'authentication_status' not in st.session_state:
+        #st.session_state['authentication_status'] = False
 
-    if not st.session_state['authentication_status'] :
+    #if not st.session_state['authentication_status'] :
         #login_form()
-    else:
-        show_authentication_page()
+    #else:
+        #show_authentication_page()
 
 
 
@@ -28,11 +28,11 @@ def authentication():
             st.error("Username/password is incorrect")
 
 
-def show_authentication_page():
-    st.title("Welcome")
+#def show_authentication_page():
+    #st.title("Welcome")
     
-    if st.button("Logout"):
+    #if st.button("Logout"):
             logout()
 
-def logout():
-        st.session_state.clear()
+#def logout():
+        #st.session_state.clear()
